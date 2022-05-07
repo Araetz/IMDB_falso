@@ -1,0 +1,62 @@
+﻿@page
+@model IMDB_falso.Pages.PersonasModel
+@{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Imagen
+                </th>
+                <th>
+                    Nombre
+                </th>
+                <th>
+                    Apellido
+                </th>
+                <th>
+                    Origen
+                </th>
+                <th>
+                    Nacimiento
+                </th>
+                <th>
+                    Muerte
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (IMDB_falso.App_Code.Persona persona in Model.personas)
+            {
+             //   @persona.firstName;
+            <tr>
+                <td>
+                    <img src="@persona.image" class="img-fluid rounded" style="max-width:200px;  max-height:200px"; />
+                </td>
+                <td>
+                    @persona.firstName
+                </td>
+                <td>
+                    @persona.secondName
+                </td>
+                <td>
+                    @persona.origin
+                </td>
+                <td>
+                    @persona.birth.ToShortDateString()
+                </td>
+                <td>
+                    @if (persona.death == DateTime.MinValue)
+                    {
+                        <span>-</span>
+                    }
+                    else
+                    {
+                        @persona.death.ToShortDateString()
+                    }
+                </td>
+            </tr>
+
+            }
+        </tbody>
+    </table>
+}
