@@ -12,6 +12,12 @@ namespace IMDB_falso.Pages
     {
         private readonly ILogger<IndexModel> _logger;
 
+
+        [BindProperty(SupportsGet =true)]
+        public int id { get; set;  }
+
+
+
         public IndexModel(ILogger<IndexModel> logger)
         {
             _logger = logger;

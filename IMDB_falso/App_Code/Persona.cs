@@ -7,12 +7,12 @@ namespace IMDB_falso.App_Code
 {
     public class Persona
     {
-        public string firstName;
-        public string secondName; 
-        public string origin;
-        public string image; 
-        public DateTime birth;
-        public DateTime death; 
+        public string firstName { set; get; }
+        public string secondName { set; get; }
+        public string origin { set; get; }
+        public string image { set; get; }
+        public DateTime birth { set; get; }
+        public DateTime death { set; get; }
 
         public Persona()
         {

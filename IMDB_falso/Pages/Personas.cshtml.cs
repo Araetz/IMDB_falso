@@ -10,15 +10,30 @@ namespace IMDB_falso.Pages
 {
     public class PersonasModel : PageModel
     {
-        public List<Persona> personas; 
+        public List<Persona> personas = new List<Persona>(); 
+
+        [BindProperty]
+        public Persona newPersona { get; set;  }
         public void OnGet()
         {
-            personas = new List<Persona>();
-            for (int i = 0; i < 10; i++)
+            ReadDB(); 
+
+        }
+        public IActionResult OnPost()
+        {
+            //Insertar en la Base de datos
+            personas.Add(newPersona); 
+            // Recargar informacion de la base de datos
+            ReadDB(); 
+            return Page(); 
+        }
+
+        public void ReadDB()
+        {
+            for (int i=0; i<10; i++)
             {
                 personas.Add(new Persona()); 
             }
-
         }
     }
 }

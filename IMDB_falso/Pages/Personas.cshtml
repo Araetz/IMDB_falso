@@ -1,6 +1,16 @@
 ﻿@page
 @model IMDB_falso.Pages.PersonasModel
 @{
+}
+
+    <form method="post">
+        <input type="text" asp-for="newPersona.firstName" placeholder="Nombre" />
+        <input type="text" asp-for="newPersona.secondName" placeholder="Apellido" />
+        <input type="text" asp-for="newPersona.origin" placeholder="Origen" />
+        <input type="date" asp-for="newPersona.birth" />
+        <button type="submit">Añadir persona</button>
+    </form>
+
     <table class="table">
         <thead>
             <tr>
@@ -59,4 +69,4 @@
             }
         </tbody>
     </table>
-}
+
