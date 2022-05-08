@@ -1,8 +1,10 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using IMDB_falso.App_Code;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -25,7 +27,7 @@ namespace IMDB_falso.Pages
 
         public void OnGet()
         {
-
+            DataTable dt = DataBaseController.Select("SELECT * FROM [Person]"); 
         }
     }
 }
