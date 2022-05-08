@@ -28,14 +28,22 @@ namespace IMDB_falso.Pages
 
         public void OnGet()
         {
+            DataBaseController.DB_Field[] values = new DataBaseController.DB_Field[]
+            {
+               new DataBaseController.DB_Field("FirstName", "Hola"),
+               new DataBaseController.DB_Field("SecondName", "Pepsicola")
+            };
+            DataBaseController.Update("Person", values, ""); 
+            /*Comparer
             DataBaseController.DB_Comparer[] conditions = new DataBaseController.DB_Comparer[]
             {
                 new DataBaseController.DB_Comparer("FirstName", "Brad", DataBaseController.DB_Comparer.COMPARE_TYPE.EQUALS),
                 new DataBaseController.DB_Comparer("SecondName", "Pitt", DataBaseController.DB_Comparer.COMPARE_TYPE.EQUALS),
                  new DataBaseController.DB_Comparer("SecondName", "%P%", DataBaseController.DB_Comparer.COMPARE_TYPE.LIKE)
             }; 
+            */
             // dt = DataBaseController.Select("SELECT * FROM [Person]"); 
-            dt = DataBaseController.Select("Person", null, conditions);
+           // dt = DataBaseController.Select("Person", null, conditions);
         }
     }
 }
