@@ -17,6 +17,7 @@ namespace IMDB_falso.Pages
 
         [BindProperty(SupportsGet =true)]
         public int id { get; set;  }
+        public DataTable dt; 
 
 
 
@@ -27,7 +28,14 @@ namespace IMDB_falso.Pages
 
         public void OnGet()
         {
-            DataTable dt = DataBaseController.Select("SELECT * FROM [Person]"); 
+            DataBaseController.DB_Comparer[] conditions = new DataBaseController.DB_Comparer[]
+            {
+                new DataBaseController.DB_Comparer("FirstName", "Brad", DataBaseController.DB_Comparer.COMPARE_TYPE.EQUALS),
+                new DataBaseController.DB_Comparer("SecondName", "Pitt", DataBaseController.DB_Comparer.COMPARE_TYPE.EQUALS),
+                 new DataBaseController.DB_Comparer("SecondName", "%P%", DataBaseController.DB_Comparer.COMPARE_TYPE.LIKE)
+            }; 
+            // dt = DataBaseController.Select("SELECT * FROM [Person]"); 
+            dt = DataBaseController.Select("Person", null, conditions);
         }
     }
 }

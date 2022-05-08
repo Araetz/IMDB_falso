@@ -8,8 +8,34 @@
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
     <p>URL Id: @Model.id</p>
-
-
-
-
 </div>
+<table class ="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>FirstName</th>
+            <th>SecondName</th>
+            <th>Origin</th>
+            <th>Birth</th>
+            <th>Death</th>
+            <th>Image</th>
+        </tr>
+
+    </thead>
+    <tbody>
+        @foreach (System.Data.DataRow row in Model.dt.Rows)
+        {
+        <tr>
+            <td>@row[0].ToString()</td>
+            <td>@row[1].ToString()</td>
+            <td>@row[2].ToString()</td>
+            <td>@row[3].ToString()</td>
+            <td>@row[4].ToString()</td>
+            <td>@row[5].ToString()</td>
+            <td>@row[6].ToString()</td>
+        </tr>
+        }
+
+    </tbody>
+
+</table>
